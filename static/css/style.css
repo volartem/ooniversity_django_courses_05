@@ -1,0 +1,36 @@
+html{
+    background-color: royalblue;
+}
+body{
+    margin: 10px;
+}
+#page{
+    margin: 20px;
+}
+p{
+    font-size: 16px;
+}
+
+.nav-pills{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+a{
+    color: royalblue;
+}
+ul{
+    font-size: 16px;
+}
+h1{
+    color: black;
+}
+h2{
+    color: #000;
+}
+h3{
+    color: black;
+}
+a{
+    font-size: 18px;
+    color: royalblue;
+}

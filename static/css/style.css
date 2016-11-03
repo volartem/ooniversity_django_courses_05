@@ -57,3 +57,10 @@ a{
 #main_page{
     background-color: royalblue;
 }
+table{
+    font-size: 18px;
+}
+td, th{
+    padding: 5px;
+    border: inset black 1px;
+}

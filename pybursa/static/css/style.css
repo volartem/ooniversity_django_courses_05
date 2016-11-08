@@ -1,0 +1,68 @@
+html{
+    background-color: royalblue;
+}
+body{
+    margin: 10px;
+}
+#page{
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background-color: whitesmoke;
+}
+#content{
+    margin: 10px;
+}
+.tab-content{
+    margin: 10px;
+}
+p{
+    font-size: 16px;
+}
+
+.nav-pills{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.navbar-inverse{
+    margin: 0 10px 10px 10px;
+}
+a{
+    color: royalblue;
+}
+ul{
+    font-size: 16px;
+}
+h1{
+    color: black;
+}
+h2{
+    color: #000;
+}
+h3{
+    color: black;
+}
+a{
+    font-size: 18px;
+    color: royalblue;
+}
+.tab-content{
+    padding-bottom: 10px;
+}
+#footer{
+    padding: 10px;
+    background-color: whitesmoke;
+}
+#footer p{
+    text-align: center;
+}
+#main_page{
+    background-color: royalblue;
+}
+table{
+    font-size: 18px;
+}
+td, th{
+    padding: 5px;
+    border: inset black 1px;
+}

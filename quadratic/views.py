@@ -4,9 +4,11 @@ def equal_int(num):
     try:
         if not num:
             return "", "коэффициент не определен"
+        elif int(num) == 0:
+            return 0, ""
         elif int(num):
             return int(num), ""
-    except ValueError:
+    except :
         return num, "коэффициент не целое число"
 
 def quadratic_results(request):

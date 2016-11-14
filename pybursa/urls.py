@@ -19,7 +19,7 @@ from . import views
 
 urlpatterns = [
     url(r'^polls/', include('polls.urls')),
-    url(r'^quadratic/results/', include('quadratic.urls')),
+    url(r'^quadratic/', include('quadratic.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index, name='index'),
     url(r'^index/$', views.index, name='index'),

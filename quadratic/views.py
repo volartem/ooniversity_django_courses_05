@@ -22,7 +22,6 @@ def quadratic_results(request):
         "diskr": "",
         "info_text": ""
     }
-    print(a, b, c)
     if isinstance(a, int) and a != 0:
         diskr = b * b - 4 * a * c
         dict_html['diskr'] = "Дискриминант = {0}".format(diskr)
@@ -38,4 +37,4 @@ def quadratic_results(request):
     elif a == 0:
         dict_html["prefix_a"] = "коэффициент при первом слагаемом уравнения не может быть равным нулю"
         dict_html["diskr"] = ""
-    return render(request, 'results.html', dict_html)
+    return render(request, 'quadratic/results.html', dict_html)

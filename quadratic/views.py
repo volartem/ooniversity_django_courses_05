@@ -33,7 +33,7 @@ def quadratic_results(request):
         else:
             x1 = (-b + diskr ** (1 / 2)) / 2 * a
             x2 = (-b - diskr ** (1 / 2)) / 2 * a
-            dict_html["info_text"] = "Квадратное уравнение имеет два действительных корня: x1 = {0}, x2 = {1}".format(x1, x2)
+            dict_html["info_text"] = "Квадратное уравнение имеет два действительных корня: х1 = {0}, х2 = {1}".format(x1, x2)
     elif a == 0:
         dict_html["prefix_a"] = "коэффициент при первом слагаемом уравнения не может быть равным нулю"
         dict_html["diskr"] = ""

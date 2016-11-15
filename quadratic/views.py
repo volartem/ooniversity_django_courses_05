@@ -22,7 +22,7 @@ def quadratic_results(request):
         "diskr": "",
         "info_text": ""
     }
-    if isinstance(a, int) and a != 0 and b and c:
+    if isinstance(a, int) and a != 0 and (b or b == 0) and (c or c == 0):
         diskr = b * b - 4 * a * c
         dict_html['diskr'] = "Дискриминант: {0}".format(diskr)
         if diskr < 0:

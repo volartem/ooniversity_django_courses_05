@@ -24,7 +24,7 @@ def quadratic_results(request):
     }
     if isinstance(a, int) and a != 0 and b and c:
         diskr = b * b - 4 * a * c
-        dict_html['diskr'] = "Дискриминант = {0}".format(diskr)
+        dict_html['diskr'] = "Дискриминант: {0}".format(diskr)
         if diskr < 0:
                 dict_html["info_text"] = "Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений."
         elif diskr == 0:

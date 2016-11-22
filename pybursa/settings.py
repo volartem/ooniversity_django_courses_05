@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'polls.apps.PollsConfig',
     'quadratic.apps.QuadraticConfig',
-    'cources.apps.CourcesConfig',
+    'courses.apps.CoursesConfig',
     'students.apps.StudentsConfig',
     'pybursa',
 ]

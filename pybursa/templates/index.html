@@ -19,15 +19,27 @@
         <nav class="navbar navbar-inverse" role="navigation">
             <div class="container">
                 <ul class="nav nav-pills">
-                    <li class="active"><a href="{% url 'index' %}">Main</a></li>
-                    <li><a href="{% url 'contact' %}">Contacts</a></li>
-                    <li><a href="{% url 'student_list' %}">Students</a></li>
+                    <li class="active"><a href="{% url 'index' %}">Главная</a></li>
+                    <li><a href="{% url 'contact' %}">Контакты</a></li>
+                    <li><a href="{% url 'students:list_view' %}">Студенты</a></li>
                     <li><a href="/quadratic/results/">Quadratic</a></li>
                 </ul>
             </div>
         </nav>
         <div id="content">
             <h2>Python WebBursa - программирования на Python и Django </h2>
+            <table>
+                <tr>
+                    <th>Курс</th>
+                    <th>Описание</th>
+                </tr>
+                {% for i in courses %}
+                <tr>
+                    <td><a href="{% url 'courses:detail' i.id %}">{{ i.name }}</a></td>
+                    <td>{{i.short_description}}</td>
+                </tr>
+                {% endfor %}
+            </table>
             <h3>Description</h3>
             <p>Освоить разработку веб-приложений на Python и Django легко,
             если делать это с нами. <br/>Python WebBursa поможет выучить web-программирование быстро и интересно!

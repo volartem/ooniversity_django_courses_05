@@ -1,6 +1,5 @@
 from django.db import models
-from cources.models import Course
-# Create your models here.
+from courses.models import Course
 
 class Student(models.Model):
     """
@@ -21,3 +20,6 @@ class Student(models.Model):
     address = models.CharField(max_length=255)
     skype = models.CharField(max_length=15, null=True, blank=True)
     courses = models.ManyToManyField(Course)
+
+    def __str__(self):
+        return self.name

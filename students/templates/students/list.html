@@ -1,0 +1,60 @@
+<!Doctype html>
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Курс {{cource.name}}</title>
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+</head>
+<body>
+<div id="main_page">
+    <div id="page">
+        <nav class="navbar navbar-inverse" role="navigation">
+            <div class="container">
+                <ul class="nav nav-pills">
+                    <li ><a href="{% url 'index' %}">Главная</a></li>
+                    <li><a href="{% url 'contact' %}">Контакты</a></li>
+                    <li class="active"><a href="{% url 'students:list_view' %}">Студенты</a></li>
+                    <li><a href="/quadratic/results/">Quadratic</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div id="content" >
+            <h3>Список студентов</h3>
+            <table >
+                <tr>
+                    <th>#</th>
+                    <th>фамилия имя</th>
+                    <th>адрес</th>
+                    <th>skype</th>
+                    <th>курсы</th>
+                </tr>
+                {% for i in students %}
+                <tr>
+                    <td>{{i.id}}</td>
+                    <td><a href="{% url 'students:detail' i.id %}">{{i.surname}} {{i.name}}</a></td>
+                    <td>{{i.address}}</td>
+                    <td>{{i.skype}}</td>
+                    <td>{% for j in i.courses.all %}
+                            <a href="{%  url 'courses:detail' j.id %}">{{ j.name }}</a><br>
+                        {% endfor %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+    </div>
+    <div id="footer">
+        <p>Created By <a href="https://github.com/volartem" target="_blank">volartem</a> with PyBursa community</p>
+    </div>
+</div>
+</body>
+</html>

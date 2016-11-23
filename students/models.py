@@ -23,3 +23,9 @@ class Student(models.Model):
 
     def __str__(self):
         return self.name
+
+    def _get_full_name(self):
+        "Returns the person's full name."
+        return '%s %s' % (self.name, self.surname)
+
+    full_name = property(_get_full_name)

@@ -6,7 +6,7 @@ class Course(models.Model):
     -  short_description            (CharField)     # краткое описание
     -  description                  (TextField)     # полное описание
     """
-    name = models.CharField(verbose_name="Course", max_length=60)
+    name = models.CharField(max_length=60)
     short_description = models.CharField(max_length=255)
     description = models.TextField(null=True, blank=True)
 

@@ -20,10 +20,10 @@
         <nav class="navbar navbar-inverse" role="navigation">
             <div class="container">
                 <ul class="nav nav-pills">
-                    <li><a href="{% url 'index' %}">Main</a></li>
-                    <li><a href="{% url 'contact' %}">Contacts</a></li>
-                    <li><a href="{% url 'student_list' %}">Students</a></li>
-                    <li class="active"><a href="/quadratic/results/">Quadratic</a></li>
+                    <li><a href="{% url 'index' %}">Главная</a></li>
+                    <li><a href="{% url 'contact' %}">Контакты</a></li>
+                    <li><a href="/students/">Студенты</a></li>
+                    <li class="active"><a href="{% url 'quadratic:quadratic_results' %}">Quadratic</a></li>
                 </ul>
             </div>
         </nav>

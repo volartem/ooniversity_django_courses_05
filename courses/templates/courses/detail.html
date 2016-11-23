@@ -21,8 +21,8 @@
                 <ul class="nav nav-pills">
                     <li ><a href="{% url 'index' %}">Главная</a></li>
                     <li><a href="{% url 'contact' %}">Контакты</a></li>
-                    <li><a href="{% url 'students:list_view'  %}?course_id={{ course.id }}">Студенты</a></li>
-                    <li><a href="/quadratic/results/">Quadratic</a></li>
+                    <li><a href="{% url 'students:list_view' %}?course_id={{ course.id }}">Студенты</a></li>
+                    <li><a href="{% url 'quadratic:quadratic_results' %}">Quadratic</a></li>
                 </ul>
             </div>
         </nav>

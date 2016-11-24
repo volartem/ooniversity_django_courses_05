@@ -8,8 +8,8 @@ class LessonInline(admin.TabularInline):
     extra = 0
 
 class CourseAdmin(admin.ModelAdmin):
-    list_display = ['name', 'short_description']
     search_fields = ['name']
+    list_display = ['name', 'short_description']
     inlines = [LessonInline]
 
 admin.site.register(Course, CourseAdmin)

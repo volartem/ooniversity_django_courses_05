@@ -20,10 +20,10 @@ class Lesson(models.Model):
     -  course                     (ForeignKey на Course)               # курс
     -  order                      (PositiveIntegerField)               # номер по порядку
     """
-    subject = models.CharField(max_length=60, verbose_name="Theme of lesson")
+    subject = models.CharField(max_length=60, )
     description = models.TextField(max_length=255)
     course = models.ForeignKey(Course)
-    order = models.PositiveIntegerField(verbose_name="Number of lesson")
+    order = models.PositiveIntegerField()
 
     def __str__(self):
         return self.subject

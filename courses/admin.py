@@ -4,7 +4,7 @@ from .models import Lesson, Course
 # Register your models here.
 class LessonInline(admin.TabularInline):
     model = Lesson
-    # fields = ['subject', 'description', 'order']
+    fields = ['subject', 'description', 'order']
     extra = 0
 
 class CourseAdmin(admin.ModelAdmin):

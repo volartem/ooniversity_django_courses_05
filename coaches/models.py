@@ -16,5 +16,5 @@ class Coach(models.Model):
 
     @property
     def full_name(self):
-        return  "{0} {1}".format(self.user.first_name, self.user.last_name)
+        return "{0} {1}".format(self.user.first_name, self.user.last_name)
 

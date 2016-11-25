@@ -14,6 +14,5 @@ def list_view(request):
 
 
 def detail(request, stud_id):
-    print(dir(request))
     student = Student.objects.get(id=int(stud_id))
     return render(request, "students/detail.html", {"student": student})

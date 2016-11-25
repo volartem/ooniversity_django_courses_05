@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Course, Lesson
-from students.models import Student
+# from coaches.models import Coach
 # Create your views here.
 
 def detail(request, course_id):

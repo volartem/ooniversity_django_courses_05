@@ -3,14 +3,14 @@ from courses.models import Course
 
 class Student(models.Model):
     """
- -  name                         (CharField)                                     # имя
- -  surname                      (CharField)                                     # фамилия
- -  date_of_birth                (DateField)                                     # дата рождения
- -  email                        (EmailField)
- -  phone                        (CharField)                                     # телефон
- -  address                      (CharField)                                     # адрес
- -  skype                        (CharField)
- -  courses                      (ManyToManyField на Course)    # курсы, на которых учится студент
+    -  name                         (CharField)                                     # имя
+    -  surname                      (CharField)                                     # фамилия
+    -  date_of_birth                (DateField)                                     # дата рождения
+    -  email                        (EmailField)
+    -  phone                        (CharField)                                     # телефон
+    -  address                      (CharField)                                     # адрес
+    -  skype                        (CharField)
+    -  courses                      (ManyToManyField на Course)    # курсы, на которых учится студент
     """
     name = models.CharField(verbose_name='Student name', max_length=60)
     surname = models.CharField(verbose_name='Student surname', max_length=60)
@@ -24,8 +24,6 @@ class Student(models.Model):
     def __str__(self):
         return self.name
 
-    def _get_full_name(self):
-        "Returns the person's full name."
+    @property
+    def full_name(self):
         return '%s %s' % (self.name, self.surname)
-
-    full_name = property(_get_full_name)

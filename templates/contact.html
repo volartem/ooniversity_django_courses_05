@@ -1,32 +1,13 @@
-<!DOCTYPE html>
-{% load static %}
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Contacts Python WebBursa</title>
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="{% static 'js/bootstrap.js' %}"></script>
-</head>
-<body>
-<div id="main_page">
-    <div id="page">
-        <nav class="navbar navbar-inverse" role="navigation">
-            <div class="container">
-                <ul class="nav nav-pills">
-                    <li ><a href="{% url 'index' %}">Главная</a></li>
-                    <li class="active"><a href="{% url 'contact' %}">Контакты</a></li>
-                    <li><a href="{% url 'students:list_view' %}">Студенты</a></li>
-                    <li><a href="{% url 'quadratic:quadratic_results' %}">Quadratic</a></li>
-                </ul>
-            </div>
-        </nav>
-        <div id="content">
+{% extends 'base.html' %}
+
+
+{% block title %}Contacts{% endblock title %}
+
+
+{% block active_contact %}active{% endblock %}
+
+
+{% block content %}
             <h3>Contacts</h3>
             <!-- Навигация -->
             <ul class="nav nav-tabs" role="tablist">
@@ -58,11 +39,4 @@
                     <b>Phone: 8050505052</b>
                 </div>
             </div>
-        </div>
-    </div>
-    <div id="footer">
-        <p>Created By <a href="https://github.com/volartem" target="_blank">volartem</a> with PyBursa community</p>
-    </div>
-</div>
-</body>
-</html>
+{% endblock content %}

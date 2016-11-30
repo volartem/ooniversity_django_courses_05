@@ -29,7 +29,7 @@
         </nav>
         <div id="content">
             <p><b>Квадратное уравнение a*x*x + b*x + c = 0</b></p>
-            <form method="post">{% csrf_token %}
+            <form method="get">
                 {% for field_i in form %}
                     <p>{{ field_i.errors }} коэффициент {{ field_i.name }}: {{ field_i }}</p>
                 {% endfor %}

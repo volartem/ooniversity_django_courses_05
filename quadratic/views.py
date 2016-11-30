@@ -2,14 +2,13 @@ from django.shortcuts import render, redirect
 from .forms import QuadraticForm
 
 def quadratic_results(request):
-    if request.POST:
-        form = QuadraticForm(request.POST)
+    if request.GET:
+        form = QuadraticForm(request.GET)
         context = {
             "diskr": "",
             "form": form
         }
         if form.is_valid():
-            # print(form.cleaned_data)
             a = int(form.cleaned_data['a'])
             b = int(form.cleaned_data['b'])
             c = int(form.cleaned_data['c'])

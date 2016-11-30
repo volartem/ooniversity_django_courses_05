@@ -1,9 +1,9 @@
 from django import forms
 
 class QuadraticForm(forms.Form):
-    a = forms.CharField(max_length=15)
-    b = forms.CharField(max_length=15)
-    c = forms.CharField(max_length=15)
+    a = forms.CharField(max_length=15, label='коэффициент a')
+    b = forms.CharField(max_length=15, label='коэффициент b')
+    c = forms.CharField(max_length=15, label='коэффициент c')
 
     def clean_a(self):
         try:

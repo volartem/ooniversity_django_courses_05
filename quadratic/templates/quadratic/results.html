@@ -1,47 +1,22 @@
-<!Doctype html>
-{% load static %}
+{% extends 'base.html' %}
 
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Python WebBursa</title>
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="{% static 'js/bootstrap.js' %}"></script>
-</head>
-<body>
-<div id="main_page">
-    <div id="page">
-        <nav class="navbar navbar-inverse" role="navigation">
-            <div class="container">
-                <ul class="nav nav-pills">
-                    <li><a href="{% url 'index' %}">Главная</a></li>
-                    <li><a href="{% url 'contact' %}">Контакты</a></li>
-                    <li><a href="/students/">Студенты</a></li>
-                    <li class="active"><a href="{% url 'quadratic:quadratic_results' %}">Quadratic</a></li>
-                </ul>
-            </div>
-        </nav>
-        <div id="content">
+
+{% block title %}Quadratic{% endblock title %}
+
+
+{% block active_quadratic %}active{% endblock %}
+
+
+{% block content %}
             <p><b>Квадратное уравнение a*x*x + b*x + c = 0</b></p>
             <form method="get">
-                {% for field_i in Form %}
-                    <p>{{ field_i.errors }} коэффициент {{ field_i.name }}: {{ field_i }}</p>
-                {% endfor %}
+
+
+                {{ form.as_p }}
+
+
                 <input type="submit" value="Решить">
             </form>
             <p>{{ diskr }}</p>
             <p>{{ info_text }}</p>
-        </div>
-    </div>
-    <div id="footer">
-        <p>Created By <a href="https://github.com/volartem" target="_blank">volartem</a> with PyBursa community</p>
-    </div>
-</div>
-</body>
-</html>
+{% endblock content %}

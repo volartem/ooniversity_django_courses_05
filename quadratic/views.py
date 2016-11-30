@@ -1,12 +1,14 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from .forms import QuadraticForm
 
 def quadratic_results(request):
-    if request.GET:
+    ff = request.GET
+    print(dir(request.GET))
+    if len(request.GET) > 0:
         form = QuadraticForm(request.GET)
         context = {
             "diskr": "",
-            "Form": form
+            "form": form
         }
         if form.is_valid():
             a = int(form.cleaned_data['a'])
@@ -28,5 +30,5 @@ def quadratic_results(request):
                     x1, x2)
     else:
         form = QuadraticForm()
-        context = {'Form': form}
+        context = {'form': form}
     return render(request, 'quadratic/results.html', context)

@@ -2,8 +2,6 @@ from django.shortcuts import render
 from .forms import QuadraticForm
 
 def quadratic_results(request):
-    ff = request.GET
-    print(dir(request.GET))
     if len(request.GET) > 0:
         form = QuadraticForm(request.GET)
         context = {
@@ -11,9 +9,9 @@ def quadratic_results(request):
             "form": form
         }
         if form.is_valid():
-            a = int(form.cleaned_data['a'])
-            b = int(form.cleaned_data['b'])
-            c = int(form.cleaned_data['c'])
+            a = form.cleaned_data['a']
+            b = form.cleaned_data['b']
+            c = form.cleaned_data['c']
             diskr = b * b - 4 * a * c
             context['diskr'] = "Дискриминант: {0}".format(diskr)
             if diskr < 0:

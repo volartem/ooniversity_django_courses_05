@@ -29,13 +29,14 @@
         </nav>
         <div id="content">
             <p><b>Квадратное уравнение a*x*x + b*x + c = 0</b></p>
-            <ul>
-                <li>a = {{ a }} </li>{{ error_a }}
-                <li>b = {{ b }} </li>{{ error_b }}
-                <li>c = {{ c }} </li>{{ error_c }}
-            </ul>
-            <p>{{diskr}}</p>
-            <p>{{info_text}}</p>
+            <form method="post">{% csrf_token %}
+                {% for field_i in form %}
+                    <p>{{ field_i.errors }} коэффициент {{ field_i.name }}: {{ field_i }}</p>
+                {% endfor %}
+                <input type="submit" value="Push">
+            </form>
+            <p>{{ diskr }}</p>
+            <p>{{ info_text }}</p>
         </div>
     </div>
     <div id="footer">

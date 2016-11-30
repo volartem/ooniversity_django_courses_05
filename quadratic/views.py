@@ -6,7 +6,7 @@ def quadratic_results(request):
         form = QuadraticForm(request.GET)
         context = {
             "diskr": "",
-            "form": form
+            "Form": form
         }
         if form.is_valid():
             a = int(form.cleaned_data['a'])
@@ -28,5 +28,5 @@ def quadratic_results(request):
                     x1, x2)
     else:
         form = QuadraticForm()
-        context = {'form': form}
+        context = {'Form': form}
     return render(request, 'quadratic/results.html', context)

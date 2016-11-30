@@ -1,27 +1,12 @@
 from django import forms
 
 class QuadraticForm(forms.Form):
-    a = forms.CharField(max_length=15, label='коэффициент a')
-    b = forms.CharField(max_length=15, label='коэффициент b')
-    c = forms.CharField(max_length=15, label='коэффициент c')
+    a = forms.IntegerField(label='коэффициент a', widget=forms.TextInput, error_messages={'invalid': 'This field is required'})
+    b = forms.IntegerField(label='коэффициент b', widget=forms.TextInput, error_messages={'invalid': 'This field is required'})
+    c = forms.IntegerField(label='коэффициент c', widget=forms.TextInput, error_messages={'invalid': 'This field is required'})
 
     def clean_a(self):
-        try:
-            data = int(self.cleaned_data['a'])
-            if data == 0:
-                raise forms.ValidationError('коэффициент при первом слагаемом уравнения не может быть равным нулю')
-        except ValueError:
-            raise forms.ValidationError('This field is required')
+        data = self.cleaned_data['a']
+        if data == 0:
+            raise forms.ValidationError('коэффициент при первом слагаемом уравнения не может быть равным нулю')
         return data
-
-    def clean_b(self):
-        try:
-            return int(self.cleaned_data['b'])
-        except ValueError:
-            raise forms.ValidationError('This field is required')
-
-    def clean_c(self):
-        try:
-            return int(self.cleaned_data['c'])
-        except ValueError:
-            raise forms.ValidationError('This field is required')

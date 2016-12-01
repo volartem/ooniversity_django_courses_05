@@ -8,26 +8,45 @@
 
 
 {% block content %}
-            <h3>Список студентов</h3>
-            <table >
-                <tr>
-                    <th>#</th>
-                    <th>фамилия имя</th>
-                    <th>адрес</th>
-                    <th>skype</th>
-                    <th>курсы</th>
-                </tr>
-                {% for i in students %}
-                <tr>
-                    <td>{{i.id}}</td>
-                    <td><a href="{% url 'students:detail' i.id %}">{{i.surname}} {{i.name}}</a></td>
-                    <td>{{i.address}}</td>
-                    <td>{{i.skype}}</td>
-                    <td>{% for j in i.courses.all %}
-                            <a href="{%  url 'courses:detail' j.id %}">{{ j.name }}</a><br>
-                        {% endfor %}
-                    </td>
-                </tr>
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <div class="messages">
+                        {{ message }}
+                </div>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <p><a class="add_student_button" href="{% url 'students:add' %}">Добавить нового студента</a></p>
+    <h3>Список студентов</h3>
+    <table >
+        <tr>
+            <th>#</th>
+            <th>фамилия имя</th>
+            <th>адрес</th>
+            <th>skype</th>
+            <th>курсы</th>
+            <th></th>
+            <th></th>
+        </tr>
+        {% for i in students %}
+        <tr>
+            <td>{{i.id}}</td>
+            <td><a href="{% url 'students:detail' i.id %}">{{i.surname}} {{i.name}}</a></td>
+            <td>{{i.address}}</td>
+            <td>{{i.skype}}</td>
+            <td>{% for j in i.courses.all %}
+                    <a href="{%  url 'courses:detail' j.id %}">{{ j.name }}</a><br>
                 {% endfor %}
-            </table>
+            </td>
+            <td>
+                <a class="add_student_button" href="{% url 'students:edit' i.id %}">Изменить</a>
+            </td>
+            <td>
+                <a class="add_student_button" href="{% url 'students:remove' i.id %}">Удалить</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p><a class="add_student_button" href="{% url 'students:add' %}">Добавить нового студента</a></p>
 {% endblock content %}

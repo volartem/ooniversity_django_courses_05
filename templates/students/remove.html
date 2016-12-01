@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Remove student{% endblock title %}
+
+
+{% block content %}
+
+    <form method="post">{% csrf_token %}
+
+        <p>Студент {{ model.full_name }} будет удален</p>
+
+        <input type="submit" value="Remove">
+    </form>
+
+{% endblock %}

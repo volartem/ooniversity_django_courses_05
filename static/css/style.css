@@ -79,3 +79,25 @@ td, th{
     padding: 0 0 10px 0;
     margin: 10px 0 10px 0;
 }
+
+.student_form{
+    padding: 10px;
+}
+.messages{
+    background: #4cae4c;
+}
+.add_student_button {
+    margin-top: 10px;
+    border: 1px solid #3c763d; /* Рамка */
+    border-radius: 4px;
+    background-color: #67b168;
+    display: inline-block;
+    padding: 5px 15px; /* Поля */
+    text-decoration: none; /* Убираем подчёркивание */
+    color: #000; /* Цвет текста */
+  }
+   .add_student_button:hover {
+    box-shadow: 0 0 5px rgba(0,0,0,0.3); /* Тень */
+    background: linear-gradient(to bottom, #3c763d, #e9e9ce); /* Градиент */
+    color: inherit;
+   }

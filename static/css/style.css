@@ -85,6 +85,7 @@ td, th{
 }
 .messages{
     background: #4cae4c;
+    cursor: pointer;
 }
 .add_student_button {
     margin-top: 10px;

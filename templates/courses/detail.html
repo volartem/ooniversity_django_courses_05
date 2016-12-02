@@ -25,17 +25,16 @@
                     <th>#</th>
                     <th>Тема</th>
                     <th>Описание</th>
-                    <th></th>
                 </tr>
                 {% for i in lessons %}
                 <tr>
                     <td>{{i.order}}</td>
                     <td>{{i.subject}}</td>
                     <td>{{i.description}}</td>
-                    <td><a class="add_student_button" href="{%  url  'courses:add_lesson' course.id %}">Добавить урок</a></td>
                 </tr>
                 {% endfor %}
             </table>
+            <p><a class="add_student_button" href="{%  url  'courses:add_lesson' course.id %}">Добавить урок</a></p>
             <div class="master">
                 <p class="description"><b>Учитель</b></p>
                 <p><a href="{% url 'coaches:detail' course.coach.id %}">{{ course.coach.full_name }}</a></p>

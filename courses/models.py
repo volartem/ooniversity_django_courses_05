@@ -32,5 +32,5 @@ class Lesson(models.Model):
     def __str__(self):
         return self.subject
 
-    # def __repr__(self):
-    #     return self.subject
+    def __repr__(self):
+        return self.subject

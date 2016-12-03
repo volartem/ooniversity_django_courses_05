@@ -18,7 +18,7 @@
         </ul>
     {% endif %}
             <h3>{{course.name}}</h3>
-            <p class="description">{{ course.description|truncatechars:32 }}</p>
+            <p class="description">{{ course.description }}</p>
             <div class="master">
                 <p class="description"><b>Учитель</b></p>
                 <p><a href="{% url 'coaches:detail' course.coach.id %}">{{ course.coach.full_name }}</a></p>
@@ -29,6 +29,7 @@
                 <p><a href="{% url 'coaches:detail' course.assistant.id %}">{{ course.assistant.full_name }}</a></p>
                 <p>{{ course.assistant.description }}</p>
             </div>
+            <h3>План курса</h3>
             <p><a class="add_student_button" href="{%  url  'courses:add-lesson' course.id %}">Добавить урок</a></p>
             <table >
                 <tr>

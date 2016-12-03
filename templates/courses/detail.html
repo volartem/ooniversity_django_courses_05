@@ -8,15 +8,15 @@
 
 
 {% block content %}
-    {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-                <div class="messages">
-                        {{ message }}
-                </div>
-            {% endfor %}
-        </ul>
-    {% endif %}
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <div class="messages">
+                                {{ message }}
+                        </div>
+                    {% endfor %}
+                </ul>
+            {% endif %}
             <h3>{{course.name}}</h3>
             <p class="description">{{ course.description }}</p>
             <div class="master">

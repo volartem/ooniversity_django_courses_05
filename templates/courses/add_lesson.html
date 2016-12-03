@@ -5,9 +5,9 @@
 
 
 {% block content %}
-    <h2>Добавить урок</h2>
+    <h2>Создание нового занятия</h2>
     <form method="post">{% csrf_token %}
         {{ model.as_p }}
-    <input type="submit" value="ADD">
+    <input type="submit" value="Создать">
     </form>
 {% endblock %}

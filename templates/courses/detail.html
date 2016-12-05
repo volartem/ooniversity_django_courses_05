@@ -30,18 +30,22 @@
                 <p>{{ course.assistant.description }}</p>
             </div>
             <h3>План курса</h3>
-            <p><a class="add_student_button" href="{%  url  'courses:add-lesson' course.id %}">Добавить занятие</a></p>
+            <p><a class="add_student_button" href="{%  url 'courses:add-lesson' course.id %}">Добавить занятие</a></p>
             <table >
                 <tr>
                     <th>#</th>
                     <th>Тема</th>
                     <th>Описание</th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 {% for i in lessons %}
                 <tr>
                     <td>{{i.order}}</td>
                     <td>{{i.subject}}</td>
                     <td>{{i.description}}</td>
+                    <td><a class="add_student_button" href="{%  url 'courses:edit-lesson' i.id %}">Редактировать</a></td>
+                    <td><a class="add_student_button" href="{%  url 'courses:remove-lesson' i.id %}">Удалить</a></td>
                 </tr>
                 {% endfor %}
             </table>

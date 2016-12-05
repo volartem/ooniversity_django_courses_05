@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Remove {{ model.instance.subject }}{% endblock title %}
+
+
+{% block content %}
+    <h2>Удалить {{ model.instance.subject }}</h2>
+    <form method="post">{% csrf_token %}
+
+
+        <input type="submit" value="RЕMOVE">
+    </form>
+
+{% endblock %}

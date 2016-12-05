@@ -54,3 +54,25 @@ def add_lesson(request, course_id):
     else:
         model_form = LessonModelForm(initial={'course': int(course_id)})
     return render(request, 'courses/add_lesson.html', {'model': model_form})
+
+def edit_lesson(request, lesson_id):
+    lesson = Lesson.objects.get(id=int(lesson_id))
+    if request.method == 'POST':
+        model_form = LessonModelForm(request.POST, instance=lesson)
+        if model_form.is_valid():
+            model_form.save()
+            messages.success(request, 'The changes have been saved.')
+            return redirect('/courses/{0}/edit_lesson'.format(lesson_id))
+    else:
+        model_form = LessonModelForm(instance=lesson)
+    return render(request, 'courses/edit_lesson.html', {'model': model_form})
+
+def remove_lesson(request, lesson_id):
+    lesson = Lesson.objects.get(id=int(lesson_id))
+    if request.method == 'POST':
+        lesson.delete()
+        messages.success(request, 'Lesson {0} has been deleted.'.format(lesson.subject))
+        return redirect('/courses/{0}/'.format(lesson.course.id))
+    else:
+        model_form = LessonModelForm(instance=lesson)
+    return render(request, 'courses/remove_lesson.html', {'model': model_form})

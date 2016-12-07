@@ -12,7 +12,6 @@ from django.urls import reverse_lazy, reverse
 class StudentListView(ListView):
     model = Student
     template_name = 'students/list.html'
-    context_object_name = 'students'
 
     def get_queryset(self):
         qs = super().get_queryset()

@@ -29,7 +29,6 @@ class StudentCreateView(CreateView):
     model = Student
     form_class = StudentModelForm
     template_name = 'students/add.html'
-    # context_object_name = 'model'
     success_url = reverse_lazy('students:list_view')
 
     def form_valid(self, form):
@@ -38,11 +37,16 @@ class StudentCreateView(CreateView):
                          (form.instance.name, form.instance.surname))
         return response
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Student registration'
+        return context
+
 class StudentEditView(UpdateView):
     model = Student
     form_class = StudentModelForm
     template_name = 'students/edit.html'
-    # context_object_name = 'modell'
+    # context_object_name = 'model'
 
     def form_valid(self, form):
         response = super().form_valid(form)
@@ -52,10 +56,15 @@ class StudentEditView(UpdateView):
     def get_success_url(self):
         return reverse('students:edit', args=(self.object.pk,))
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Student info update'
+        return context
+
 class StudentDeleteView(DeleteView):
     model = Student
     template_name = 'students/remove.html'
-    context_object_name = 'student'
+    # context_object_name = 'student'
     success_url = reverse_lazy('students:list_view')
 
     def delete(self, request, *args, **kwargs):
@@ -63,6 +72,11 @@ class StudentDeleteView(DeleteView):
         messages.success(self.request, 'Info on %s %s has been successfully deleted.' %
                          (self.object.name, self.object.surname))
         return response
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Student info suppression'
+        return context
 
 # def list_view(request):
 #     try:

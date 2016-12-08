@@ -11,7 +11,7 @@ from django.urls import reverse_lazy, reverse
 
 class StudentListView(ListView):
     model = Student
-    template_name = 'students/list.html'
+    # template_name = 'students/student_list.html'
 
     def get_queryset(self):
         qs = super().get_queryset()
@@ -22,7 +22,7 @@ class StudentListView(ListView):
 
 class StudentDetailView(DetailView):
     model = Student
-    template_name = 'students/detail.html'
+    # template_name = 'students/student_detail.html'
 
 class StudentCreateView(CreateView):
     model = Student

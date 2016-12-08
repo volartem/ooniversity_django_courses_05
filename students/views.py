@@ -27,7 +27,7 @@ class StudentDetailView(DetailView):
 class StudentCreateView(CreateView):
     model = Student
     form_class = StudentModelForm
-    template_name = 'students/add.html'
+    # template_name = 'students/student_form.html'
     success_url = reverse_lazy('students:list_view')
 
     def form_valid(self, form):
@@ -44,7 +44,8 @@ class StudentCreateView(CreateView):
 class StudentUpdateView(UpdateView):
     model = Student
     form_class = StudentModelForm
-    template_name = 'students/edit.html'
+    template_name_suffix = '_update_form'
+    # template_name = 'students/student_update_form.html'
     # context_object_name = 'model'
 
     def form_valid(self, form):
@@ -53,7 +54,7 @@ class StudentUpdateView(UpdateView):
         return response
 
     def get_success_url(self):
-        return reverse('students:edit', args=(self.object.pk,))
+        return reverse_lazy('students:edit', args=(self.object.pk,))
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -62,7 +63,7 @@ class StudentUpdateView(UpdateView):
 
 class StudentDeleteView(DeleteView):
     model = Student
-    template_name = 'students/remove.html'
+    # template_name = 'students/student_confirm_delete.html'
     # context_object_name = 'student'
     success_url = reverse_lazy('students:list_view')
 

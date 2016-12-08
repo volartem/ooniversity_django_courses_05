@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 
 
-{% block title %}Remove {{ model.instance.name }}{% endblock title %}
+{% block title %}Remove {{ title }}{% endblock title %}
 
 
 {% block content %}
-    <h2>Удалить {{ model.instance.name }}</h2>
+    <h2>Удалить {{ object.name }}</h2>
     <form method="post">{% csrf_token %}
 
-        <p>Курс {{ model.instance.name }} будет удален</p>
+        <p>Курс {{ object.name}} будет удален</p>
 
         <input type="submit" value="RЕMOVE">
     </form>

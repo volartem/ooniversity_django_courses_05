@@ -3,8 +3,9 @@ from .models import Feedback
 
 
 class FeedbackAdmin(admin.ModelAdmin):
-    readonly_fields = ('create_date',)
-    fields = ('from_email', 'create_date')
+    list_display = ('from_email', 'create_date')
+    # readonly_fields = ('create_date',)
+    # fields = ('from_email', 'create_date')
 
 
 admin.site.register(Feedback, FeedbackAdmin)

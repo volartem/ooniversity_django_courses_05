@@ -11,6 +11,7 @@ from django.urls import reverse_lazy, reverse
 
 class StudentListView(ListView):
     model = Student
+    paginate_by = 2
     # template_name = 'students/student_list.html'
 
     def get_queryset(self):

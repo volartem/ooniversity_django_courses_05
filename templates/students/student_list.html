@@ -31,10 +31,10 @@
         </tr>
         {% for i in object_list %}
         <tr>
-            <td>{{i.id}}</td>
-            <td><a href="{% url 'students:detail' i.id %}">{{i.surname}} {{i.name}}</a></td>
-            <td>{{i.address}}</td>
-            <td>{{i.skype}}</td>
+            <td>{{ forloop.counter }}</td>
+            <td><a href="{% url 'students:detail' i.id %}">{{ i.surname }} {{ i.name }}</a></td>
+            <td>{{ i.address }}</td>
+            <td>{{ i.skype }}</td>
             <td>{% for j in i.courses.all %}
                     <a href="{%  url 'courses:detail' j.id %}">{{ j.name }}</a><br>
                 {% endfor %}
@@ -48,5 +48,25 @@
         </tr>
         {% endfor %}
     </table>
+    {% if is_paginated %}
+        <ul class="pagination">
+            <li class="step-links">
+                {% if page_obj.has_previous %}
+                    <li><a href="?page={{ page_obj.previous_page_number }}"><< previous</a></li>
+                {% endif %}
+                {% for page in page_obj.paginator.page_range %}
+                    {% if page == page_obj.number %}
+                        <li class="current"><a href="{{ page }}"> {{ page }}</a></li>
+                    {% else %}
+                        <li><a href="?page={{ page }}"> {{ page }}</a></li>
+                    {% endif %}
+                    {{ page.number }}
+                {% endfor %}
+                {% if page_obj.has_next %}
+                    <li><a href="?page={{ page_obj.next_page_number }}">next >></a></li>
+                {% endif %}
+            </li>
+        </ul>
+    {% endif %}
     <p><a class="add_student_button" href="{% url 'students:add' %}">Добавить нового студента</a></p>
 {% endblock content %}

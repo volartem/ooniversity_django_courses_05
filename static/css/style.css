@@ -97,8 +97,16 @@ td, th{
     text-decoration: none; /* Убираем подчёркивание */
     color: #000; /* Цвет текста */
   }
-   .add_student_button:hover {
+.add_student_button:hover {
     box-shadow: 0 0 5px rgba(0,0,0,0.3); /* Тень */
     background: linear-gradient(to bottom, #3c763d, #e9e9ce); /* Градиент */
     color: inherit;
-   }
+}
+.current{
+    /*position: relative;*/
+    float: left;
+    color: white;
+    text-decoration: none;
+    background: royalblue;
+    border: 2px solid #ddd;
+}

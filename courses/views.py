@@ -11,6 +11,7 @@ from django.urls import reverse_lazy, reverse
 class CourseDetailView(DetailView):
     model = Course
     template_name = 'courses/detail.html'
+    context_object_name = 'course'
 
     def get_queryset(self):
         qs = super().get_queryset()
@@ -21,14 +22,13 @@ class CourseDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['lessons'] = Lesson.objects.filter(course=self.get_queryset())
+        context['lessons'] = Lesson.objects.filter(course=self.object.pk)
         return context
 
 class CourseCreateView(CreateView):
     model = Course
     form_class = CourseModelForm
     template_name = 'courses/add.html'
-    # context_object_name = 'model'
     success_url = reverse_lazy('index')
 
     def form_valid(self, form):

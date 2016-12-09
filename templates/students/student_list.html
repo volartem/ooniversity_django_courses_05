@@ -56,7 +56,7 @@
                 {% endif %}
                 {% for page in page_obj.paginator.page_range %}
                     {% if page == page_obj.number %}
-                        <li class="current"><a href="{{ page }}"> {{ page }}</a></li>
+                        <li class="current"><a href="?page={{ page }}"> {{ page }}</a></li>
                     {% else %}
                         <li><a href="?page={{ page }}"> {{ page }}</a></li>
                     {% endif %}

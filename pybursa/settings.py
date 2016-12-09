@@ -129,7 +129,7 @@ STATICFILES_DIRS = [
 ]
 STATIC_URL = '/static/'
 
-ADMINS = [('admin', ''),]
+ADMINS = [('admin', 'some@email.com'),]
 
 EMAIL_PORT = '1025'
 

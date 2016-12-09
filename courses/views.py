@@ -7,9 +7,11 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.urls import reverse_lazy, reverse
 
+# Create your views here.
 class CourseDetailView(DetailView):
     model = Course
     template_name = 'courses/detail.html'
+    # context_object_name = 'course'
 
     def get_queryset(self):
         qs = super().get_queryset()
@@ -27,6 +29,7 @@ class CourseCreateView(CreateView):
     model = Course
     form_class = CourseModelForm
     template_name = 'courses/add.html'
+    # context_object_name = 'model'
     success_url = reverse_lazy('index')
 
     def form_valid(self, form):
@@ -73,7 +76,6 @@ class CourseDeleteView(DeleteView):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Course deletion'
         return context
-
 
 def add_lesson(request, course_id):
     # course = Course.objects.get(id=int(course_id))

@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -42,6 +41,7 @@ INSTALLED_APPS = [
     'courses.apps.CoursesConfig',
     'students.apps.StudentsConfig',
     'coaches.apps.CoachesConfig',
+    'feedbacks.apps.FeedbacksConfig',
 ]
 
 MIDDLEWARE = [
@@ -128,3 +128,9 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 STATIC_URL = '/static/'
+
+ADMINS = [('admin', ''),]
+
+EMAIL_PORT = '1025'
+
+EMAIL_HOST = '127.0.0.1'

@@ -3,14 +3,7 @@ from courses.models import Course
 
 class Student(models.Model):
     """
-    -  name                         (CharField)                                     # имя
-    -  surname                      (CharField)                                     # фамилия
-    -  date_of_birth                (DateField)                                     # дата рождения
-    -  email                        (EmailField)
-    -  phone                        (CharField)                                     # телефон
-    -  address                      (CharField)                                     # адрес
-    -  skype                        (CharField)
-    -  courses                      (ManyToManyField на Course)    # курсы, на которых учится студент
+    default docs
     """
     name = models.CharField(verbose_name='Student name', max_length=60)
     surname = models.CharField(verbose_name='Student surname', max_length=60)

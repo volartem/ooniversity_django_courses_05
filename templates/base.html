@@ -24,6 +24,7 @@
                         <li class="{% block active_contact %}{% endblock %}"><a href="{% url 'contact' %}">Контакты</a></li>
                         <li class="{% block active_students %}{% endblock %}"><a href="{% url 'students:list_view' %}{% block students_get %}{% endblock %}">Студенты</a></li>
                         <li class="{% block active_quadratic %}{% endblock %}"><a href="{% url 'quadratic:quadratic_results' %}">Quadratic</a></li>
+                        <li class="{% block active_feedback %}{% endblock %}"><a href="{% url 'feedback' %}">Feedback</a></li>
                     </ul>
                 </div>
             </nav>

@@ -30,7 +30,7 @@
                     <td>курсы учитель</td>
                     <td>{% if couch_cours %}
                             {% for i in couch_cours %}
-                                <a href="{% url 'courses:detail' i.id %}">{{i.name }}</a> Студенты курса <a href="{% url 'students:list_view' %}?pk={{ i.id }}"><i class="glyphicon glyphicon-share-alt"></i></a><br>
+                                <a href="{% url 'courses:detail' i.id %}">{{i.name }}</a> Студенты курса <a href="{% url 'students:list_view' %}?course_id={{ i.id }}"><i class="glyphicon glyphicon-share-alt"></i></a><br>
 
                             {% endfor %}
                         {% endif %}
@@ -40,7 +40,7 @@
                     <td>курсы ассистент</td>
                     <td>{% if assistant_cours %}
                             {% for i in assistant_cours %}
-                                <a href="{% url 'courses:detail' i.id %}">{{i.name }}</a> Студенты курса <a href="{% url 'students:list_view' %}?pk={{ i.id }}"><i class="glyphicon glyphicon-share-alt"></i></a><br>
+                                <a href="{% url 'courses:detail' i.id %}">{{i.name }}</a> Студенты курса <a href="{% url 'students:list_view' %}?course_id={{ i.id }}"><i class="glyphicon glyphicon-share-alt"></i></a><br>
                             {% endfor %}
                         {% endif %}
                     </td>

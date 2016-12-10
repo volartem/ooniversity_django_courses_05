@@ -103,10 +103,9 @@ td, th{
     color: inherit;
 }
 .current{
-    /*position: relative;*/
+    position: relative;
     float: left;
-    color: white;
+    color: black;
     text-decoration: none;
-    background: royalblue;
-    border: 2px solid #ddd;
+    border: 5px solid royalblue;
 }

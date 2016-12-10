@@ -12,11 +12,10 @@ from django.urls import reverse_lazy, reverse
 class StudentListView(ListView):
     model = Student
     paginate_by = 2
-    # template_name = 'students/student_list.html'
 
     def get_queryset(self):
         qs = super().get_queryset()
-        cours_id = self.request.GET.get('pk', None)
+        cours_id = self.request.GET.get('course_id', None)
         if cours_id:
             qs = qs.filter(courses=cours_id)
         return qs

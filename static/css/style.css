@@ -102,12 +102,12 @@ td, th{
     background: linear-gradient(to bottom, #3c763d, #e9e9ce); /* Градиент */
     color: inherit;
 }
-.current{
-    position: relative;
-    float: left;
-    text-decoration: none;
-    border: 3px solid royalblue;
-    border-radius: 5px;
-    padding: 1px;
-    margin: 2px;
-}
+/*.current{*/
+    /*position: relative;*/
+    /*float: left;*/
+    /*text-decoration: none;*/
+    /*border: 3px solid royalblue;*/
+    /*border-radius: 5px;*/
+    /*padding: 1px;*/
+    /*margin: 2px;*/
+/*}*/

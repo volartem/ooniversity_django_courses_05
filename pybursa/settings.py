@@ -169,7 +169,7 @@ LOGGING = {
     },
     'formatters': {
         'simple_students': {
-            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
         },
         'simple_courses': {
             'format': '%(levelname)s %(message)s'

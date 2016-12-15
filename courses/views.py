@@ -18,8 +18,6 @@ class CourseDetailView(DetailView):
 
     def get_queryset(self):
         qs = super().get_queryset()
-        logger.warning('Logger of courses detail view warns you!')
-        logger.error('Courses detail view went wrong!')
         cours_id = self.request.GET.get('pk', None)
         if cours_id:
             qs = qs.filter(courses=cours_id)
@@ -28,6 +26,8 @@ class CourseDetailView(DetailView):
     def get_context_data(self, **kwargs):
         logger.debug("Courses detail view has been debugged!")
         logger.info('Logger of courses detail view informs you!')
+        logger.warning('Logger of courses detail view warns you!')
+        logger.error('Courses detail view went wrong!')
         context = super().get_context_data(**kwargs)
         context['lessons'] = Lesson.objects.filter(course=self.object.pk)
         return context

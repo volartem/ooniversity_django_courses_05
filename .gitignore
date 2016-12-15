@@ -1,6 +1,9 @@
+
+local_settings.py
 *.pyc
 *.pyo
 *~
 .idea/
     __pycache__
 __pycache__
+*.log

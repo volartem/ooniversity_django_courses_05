@@ -134,15 +134,15 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_files')
 
-ADMINS = admin
+ADMINS = []
 
-EMAIL_PORT = email_port
+EMAIL_PORT = ''
 
-EMAIL_HOST = email_host
+EMAIL_HOST = ''
 
-EMAIL_HOST_USER = emaiL_host_user
+EMAIL_HOST_USER = ''
 
-EMAIL_HOST_PASSWORD = email_host_pass
+EMAIL_HOST_PASSWORD =''
 
 INTERNAL_IPS = ['127.0.0.1']
 

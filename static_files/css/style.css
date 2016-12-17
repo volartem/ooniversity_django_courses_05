@@ -1,0 +1,113 @@
+html{
+    background-color: royalblue;
+}
+body{
+    margin: 10px;
+}
+#page{
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background-color: whitesmoke;
+}
+#content{
+    margin: 10px;
+}
+.tab-content{
+    margin: 10px;
+}
+p{
+    font-size: 16px;
+}
+
+.nav-pills{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.navbar-inverse{
+    margin: 0 10px 10px 10px;
+}
+a{
+    color: royalblue;
+}
+ul{
+    font-size: 16px;
+}
+h1{
+    color: black;
+}
+h2{
+    color: #000;
+}
+h3{
+    color: black;
+}
+h4{
+    color: black;
+}
+a{
+    font-size: 18px;
+    color: royalblue;
+}
+.tab-content{
+    padding-bottom: 10px;
+}
+#footer{
+    padding: 10px;
+    background-color: whitesmoke;
+}
+#footer p{
+    text-align: center;
+}
+#main_page{
+    background-color: royalblue;
+}
+table{
+    font-size: 18px;
+}
+td, th{
+    padding: 10px;
+    border: inset black 1px;
+}
+.description{
+    background-color: lightgrey;
+    padding: 10px;
+    font-size: 16px;
+    color: black;
+}
+.master{
+    padding: 0 0 10px 0;
+    margin: 10px 0 10px 0;
+}
+
+.student_form{
+    padding: 10px;
+}
+.messages{
+    background: #4cae4c;
+    cursor: pointer;
+}
+.add_student_button {
+    margin-top: 10px;
+    border: 1px solid #3c763d; /* Рамка */
+    border-radius: 4px;
+    background-color: #67b168;
+    display: inline-block;
+    padding: 5px 15px; /* Поля */
+    text-decoration: none; /* Убираем подчёркивание */
+    color: #000; /* Цвет текста */
+  }
+.add_student_button:hover {
+    box-shadow: 0 0 5px rgba(0,0,0,0.3); /* Тень */
+    background: linear-gradient(to bottom, #3c763d, #e9e9ce); /* Градиент */
+    color: inherit;
+}
+/*.current{*/
+    /*position: relative;*/
+    /*float: left;*/
+    /*text-decoration: none;*/
+    /*border: 3px solid royalblue;*/
+    /*border-radius: 5px;*/
+    /*padding: 1px;*/
+    /*margin: 2px;*/
+/*}*/

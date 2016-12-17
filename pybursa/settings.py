@@ -134,15 +134,15 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_files')
 
-ADMINS = []
+ADMINS = [('artem', 'volartem7@gmail.com'), ('assist', 'tatyana.pikalova2012@gmail.com')]
 
-EMAIL_PORT = ''
+EMAIL_PORT = '587'
 
-EMAIL_HOST = ''
+EMAIL_HOST = 'smtp.sendgrid.net'
 
-EMAIL_HOST_USER = ''
-
-EMAIL_HOST_PASSWORD =''
+# EMAIL_HOST_USER = ''
+#
+# EMAIL_HOST_PASSWORD =''
 
 INTERNAL_IPS = ['127.0.0.1']
 

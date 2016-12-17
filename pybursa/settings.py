@@ -25,7 +25,7 @@ SECRET_KEY = '%d(nox^4-a1__9+(mot#8_#brd^i7)e1w@y5)f2s^6oxm6kys6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -176,3 +176,13 @@ LOGGING = {
         },
     },
 }
+
+import dj_database_url
+DATABASES['default'] = dj_database_url.config()
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass

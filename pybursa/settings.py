@@ -136,15 +136,15 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_files')
 
 ADMINS = [('artem', 'volartem7@gmail.com'), ('assist', 'tatyana.pikalova2012@gmail.com')]
 
-EMAIL_PORT = os.environ['EMAIL_PORT']
-
-EMAIL_HOST = os.environ['EMAIL_HOST']
-
-EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
-
-EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
-
-EMAIL_USE_TLS = True
+# EMAIL_PORT = os.environ['EMAIL_PORT']
+#
+# EMAIL_HOST = os.environ['EMAIL_HOST']
+#
+# EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
+#
+# EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
+#
+# EMAIL_USE_TLS = True
 
 INTERNAL_IPS = ['127.0.0.1']
 
@@ -186,7 +186,7 @@ LOGGING = {
 }
 
 import dj_database_url
-DATABASES['default'] = dj_database_url.config()
+DATABASES['default'] = dj_database_url.config(conn_max_age=500)
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 

@@ -48,9 +48,9 @@
                 </tr>
                 {% for i in lessons %}
                 <tr>
-                    <td>{{i.order}}</td>
-                    <td>{{i.subject}}</td>
-                    <td>{{i.description}}</td>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ i.subject }}</td>
+                    <td>{{ i.description }}</td>
                     <td><a class="add_student_button" href="{%  url 'courses:edit-lesson' i.id %}">Редактировать</a></td>
                     <td><a class="add_student_button" href="{%  url 'courses:remove-lesson' i.id %}">Удалить</a></td>
                 </tr>

@@ -20,6 +20,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+
+
 SECRET_KEY = os.environ['SECRET_KEY']
 
 
@@ -137,15 +139,15 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_files')
 
 ADMINS = [('artem', 'volartem7@gmail.com'), ('assist', 'tatyana.pikalova2012@gmail.com')]
 
-# EMAIL_PORT = os.environ['EMAIL_PORT']
-#
-# EMAIL_HOST = os.environ['EMAIL_HOST']
-#
-# EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
-#
-# EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
-#
-# EMAIL_USE_TLS = True
+EMAIL_PORT = os.environ['EMAIL_PORT']
+
+EMAIL_HOST = os.environ['EMAIL_HOST']
+
+EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
+
+EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
+
+EMAIL_USE_TLS = True
 
 INTERNAL_IPS = ['127.0.0.1']
 
@@ -194,4 +196,4 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 try:
     from .local_settings import *
 except ImportError:
-    pass
+    print("NO_LOCAL_SETTINGS_HERE")

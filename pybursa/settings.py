@@ -136,13 +136,13 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_files')
 
 ADMINS = [('artem', 'volartem7@gmail.com'), ('assist', 'tatyana.pikalova2012@gmail.com')]
 
-EMAIL_PORT = '587'
+EMAIL_PORT = os.environ['EMAIL_PORT']
 
-EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST = os.environ['EMAIL_HOST']
 
-# EMAIL_HOST_USER = ''
-#
-# EMAIL_HOST_PASSWORD =''
+EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
+
+EMAIL_HOST_PASSWORD =os.environ['EMAIL_HOST_PASSWORD']
 
 INTERNAL_IPS = ['127.0.0.1']
 

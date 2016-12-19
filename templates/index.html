@@ -17,63 +17,68 @@
             {% endfor %}
         </ul>
     {% endif %}
-            <h2>Python WebBursa - программирование на Python и Django </h2>
-            <p><a class="add_student_button" href="{% url 'courses:add' %}">Добавить новый курс</a></p>
-            <table>
-                <tr>
-                    <th>Курс</th>
-                    <th>Описание</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-                {% for i in courses %}
-                <tr>
-                    <td><a href="{% url 'courses:detail' i.id %}">{{ i.name|upper }}</a></td>
-                    <td>{{ i.short_description|title }}</td>
-                    <td><a class="add_student_button" href="{% url 'courses:edit' i.id %}">Редактировать</a></td>
-                    <td><a class="add_student_button" href="{% url 'courses:remove' i.id %}">Удалить</a></td>
-                </tr>
-                {% endfor %}
-            </table>
-            <h3>Description</h3>
-            <p>Освоить разработку веб-приложений на Python и Django легко,
-            если делать это с нами. <br/>Python WebBursa поможет выучить web-программирование быстро и интересно!
-            Только интересное обучение приносит пользу. На курсах Python WebBursa ты узнаешь, что такое веб-разработка - и ты будешь хотеть учиться!
-            Онлайн занятия помогают легче воспринимать новый материал, а домашние задания позволяют начать сразу же активно применять полученные знания.
-            Учить web-разработку на Django онлайн легко - убедись сам!</p>
-            <h3>Program</h3>
-            <ul id="progr">
-                <li>Основы Python</li>
-                <li>Строки и итераторы</li>
-                <li>Функции и модульность</li>
-                <li>Библиотеки и пакетный менеджер</li>
-                <li>Классы и ООП, основы</li>
-                <li>Классы и ООП, возможности Python</li>
-                <li>Работа с файлами</li>
-                <li>Работа с датами</li>
-                <li>Основы html/css</li>
-                <li>Основы JavaScript</li>
-                <li>Основы Web, HTTP</li>
-                <li>Django first steps</li>
-                <li>Структура Web приложения</li>
-                <li>Работа с базами данных, ORM</li>
-                <li>Кастомизация админки</li>
-                <li>Язык шаблонов</li>
-                <li>Forms</li>
-                <li>Class-based (Generic) Views</li>
-                <li>Реализация стандартных задач</li>
-                <li>Средства отладки и тестирование</li>
-                <li>Деплоймент
-            </ul>
-            <h3>Почему стоит пойти на эти курсы</h3>
-            <ul>
-                <li>Писать приложения на Python\Django просто и понятно;</li>
-                <li>Python есть в Google, Dropbox, Twitter;</li>
-                <li>Junior Developer с навыками Python\Django всегда нужны;</li>
-                <li>Ты освоишь web-разработку на Django за 6 недель;</li>
-                <li>Junior разработчик на Python зарабатывает на 30% больше конкурентов.</li>
-            </ul>
-            <a href="https://docs.google.com/document/d/1M3QRn71_rP6hFx-LKndPGNAvEWntbb-0asVH5OFzZo8/edit#" target="_blank">Подробнее о программе курса</a>
+    <h2>Python WebBursa - программирование на Python и Django </h2>
+
+    {% if user.is_authenticated %}
+        <p><a class="add_student_button" href="{% url 'courses:add' %}">Добавить новый курс</a></p>
+    {% endif %}
+    <table>
+        <tr>
+            <th>Курс</th>
+            <th>Описание</th>
+             {% if user.is_authenticated %}
+                 <th></th>
+                 <th></th>
+             {% endif %}
+        </tr>
+        {% for i in courses %}
+        <tr>
+            <td><a href="{% url 'courses:detail' i.id %}">{{ i.name|upper }}</a></td>
+            <td>{{ i.short_description|title }}</td>
+            {% if user.is_authenticated %}<td><a class="add_student_button" href="{% url 'courses:edit' i.id %}">Редактировать</a></td>{% endif %}
+            {% if user.is_authenticated %}<td><a class="add_student_button" href="{% url 'courses:remove' i.id %}">Удалить</a></td>{% endif %}
+        </tr>
+        {% endfor %}
+    </table>
+    <h3>Description</h3>
+    <p>Освоить разработку веб-приложений на Python и Django легко,
+    если делать это с нами. <br/>Python WebBursa поможет выучить web-программирование быстро и интересно!
+    Только интересное обучение приносит пользу. На курсах Python WebBursa ты узнаешь, что такое веб-разработка - и ты будешь хотеть учиться!
+    Онлайн занятия помогают легче воспринимать новый материал, а домашние задания позволяют начать сразу же активно применять полученные знания.
+    Учить web-разработку на Django онлайн легко - убедись сам!</p>
+    <h3>Program</h3>
+    <ul id="progr">
+        <li>Основы Python</li>
+        <li>Строки и итераторы</li>
+        <li>Функции и модульность</li>
+        <li>Библиотеки и пакетный менеджер</li>
+        <li>Классы и ООП, основы</li>
+        <li>Классы и ООП, возможности Python</li>
+        <li>Работа с файлами</li>
+        <li>Работа с датами</li>
+        <li>Основы html/css</li>
+        <li>Основы JavaScript</li>
+        <li>Основы Web, HTTP</li>
+        <li>Django first steps</li>
+        <li>Структура Web приложения</li>
+        <li>Работа с базами данных, ORM</li>
+        <li>Кастомизация админки</li>
+        <li>Язык шаблонов</li>
+        <li>Forms</li>
+        <li>Class-based (Generic) Views</li>
+        <li>Реализация стандартных задач</li>
+        <li>Средства отладки и тестирование</li>
+        <li>Деплоймент
+    </ul>
+    <h3>Почему стоит пойти на эти курсы</h3>
+    <ul>
+        <li>Писать приложения на Python\Django просто и понятно;</li>
+        <li>Python есть в Google, Dropbox, Twitter;</li>
+        <li>Junior Developer с навыками Python\Django всегда нужны;</li>
+        <li>Ты освоишь web-разработку на Django за 6 недель;</li>
+        <li>Junior разработчик на Python зарабатывает на 30% больше конкурентов.</li>
+    </ul>
+    <a href="https://docs.google.com/document/d/1M3QRn71_rP6hFx-LKndPGNAvEWntbb-0asVH5OFzZo8/edit#" target="_blank">Подробнее о программе курса</a>
 
 
 {% endblock content %}

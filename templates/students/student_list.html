@@ -17,7 +17,9 @@
             {% endfor %}
         </ul>
     {% endif %}
-    <p><a class="add_student_button" href="{% url 'students:add' %}">Добавить нового студента</a></p>
+    {% if user.is_authenticated %}
+        <p><a class="add_student_button" href="{% url 'students:add' %}">Добавить нового студента</a></p>
+    {% endif %}
     <h3>Список студентов</h3>
     <table >
         <tr>
@@ -26,8 +28,10 @@
             <th>адрес</th>
             <th>skype</th>
             <th>курсы</th>
-            <th></th>
-            <th></th>
+            {% if user.is_authenticated %}
+                 <th></th>
+                 <th></th>
+             {% endif %}
         </tr>
         {% for i in object_list %}
         <tr>
@@ -39,12 +43,14 @@
                     <a href="{%  url 'courses:detail' j.id %}">{{ j.name }}</a><br>
                 {% endfor %}
             </td>
-            <td>
-                <a class="add_student_button" href="{% url 'students:edit' i.id %}">Изменить</a>
-            </td>
-            <td>
-                <a class="add_student_button" href="{% url 'students:remove' i.id %}">Удалить</a>
-            </td>
+            {% if user.is_authenticated %}
+                <td>
+                    <a class="add_student_button" href="{% url 'students:edit' i.id %}">Изменить</a>
+                </td>
+                <td>
+                    <a class="add_student_button" href="{% url 'students:remove' i.id %}">Удалить</a>
+                </td>
+            {% endif %}
         </tr>
         {% endfor %}
     </table>

@@ -41,7 +41,7 @@ class CourseCreateView(CreateView):
     def form_valid(self, form):
         response = super().form_valid(form)
         messages.success(self.request, 'Course %s has been successfully added.' %
-                         form.instance.name)
+                         form.instance.name, extra_tags='success')
         return response
 
     def get_context_data(self, **kwargs):
@@ -59,7 +59,7 @@ class CourseUpdateView(UpdateView):
 
     def form_valid(self, form):
         response = super().form_valid(form)
-        messages.success(self.request, 'The changes have been saved.')
+        messages.success(self.request, 'The changes have been saved.', extra_tags='success')
         return response
 
     def get_context_data(self, **kwargs):
@@ -75,7 +75,7 @@ class CourseDeleteView(DeleteView):
     def delete(self, request, *args, **kwargs):
         response = super().delete(request, *args, **kwargs)
         messages.success(self.request, 'Course %s has been deleted.' %
-                         self.object.name)
+                         self.object.name, extra_tags='danger')
         return response
 
     def get_context_data(self, **kwargs):
@@ -89,7 +89,9 @@ def add_lesson(request, course_id):
         model_form = LessonModelForm(request.POST)
         if model_form.is_valid():
             model_form.save()
-            messages.success(request, 'Lesson {0} has been successfully added.'.format(model_form.cleaned_data['subject']))
+            messages.success(request,
+                             'Lesson {0} has been successfully added.'.format(model_form.cleaned_data['subject']),
+                             extra_tags='success')
             return redirect('/courses/{0}/'.format(course_id))
     else:
         model_form = LessonModelForm(initial={'course': int(course_id)})
@@ -101,7 +103,7 @@ def edit_lesson(request, lesson_id):
         model_form = LessonModelForm(request.POST, instance=lesson)
         if model_form.is_valid():
             model_form.save()
-            messages.success(request, 'The changes have been saved.')
+            messages.success(request, 'The changes have been saved.', extra_tags='info')
             return redirect('/courses/{0}/edit_lesson'.format(lesson_id))
     else:
         model_form = LessonModelForm(instance=lesson)
@@ -111,7 +113,8 @@ def remove_lesson(request, lesson_id):
     lesson = Lesson.objects.get(id=int(lesson_id))
     if request.method == 'POST':
         lesson.delete()
-        messages.success(request, 'Lesson {0} has been deleted.'.format(lesson.subject))
+        messages.success(request, 'Lesson {0} has been deleted.'.format(lesson.subject),
+                         extra_tags='danger')
         return redirect('/courses/{0}/'.format(lesson.course.id))
     else:
         model_form = LessonModelForm(instance=lesson)

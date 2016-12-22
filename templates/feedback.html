@@ -10,13 +10,14 @@
 {% block content %}
 
     {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-                <div class="messages">
-                        {{ message }}
+        <div class="messages">
+            {% for msg in messages %}
+                <div class="alert alert-{{ msg.tags }} alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    {{msg.message}}
                 </div>
             {% endfor %}
-        </ul>
+        </div>
     {% endif %}
     <form method="post">{% csrf_token %}
         {{ form.as_p }}

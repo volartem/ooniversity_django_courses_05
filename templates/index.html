@@ -9,24 +9,25 @@
 
 {% block content %}
     {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-                <div class="messages">
-                        {{ message }}
+        <div class="messages">
+            {% for msg in messages %}
+                <div class="alert alert-{{ msg.tags }} alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    {{msg.message}}
                 </div>
             {% endfor %}
-        </ul>
+        </div>
     {% endif %}
     <h2>Python WebBursa - программирование на Python и Django </h2>
 
-    {% if user.is_authenticated %}
+    {% if user.is_superuser %}
         <p><a class="add_student_button" href="{% url 'courses:add' %}">Добавить новый курс</a></p>
     {% endif %}
     <table>
         <tr>
             <th>Курс</th>
             <th>Описание</th>
-             {% if user.is_authenticated %}
+             {% if user.is_superuser %}
                  <th></th>
                  <th></th>
              {% endif %}
@@ -35,8 +36,8 @@
         <tr>
             <td><a href="{% url 'courses:detail' i.id %}">{{ i.name|upper }}</a></td>
             <td>{{ i.short_description|title }}</td>
-            {% if user.is_authenticated %}<td><a class="add_student_button" href="{% url 'courses:edit' i.id %}">Редактировать</a></td>{% endif %}
-            {% if user.is_authenticated %}<td><a class="add_student_button" href="{% url 'courses:remove' i.id %}">Удалить</a></td>{% endif %}
+            {% if user.is_superuser %}<td><a class="add_student_button" href="{% url 'courses:edit' i.id %}">Редактировать</a></td>{% endif %}
+            {% if user.is_superuser %}<td><a class="add_student_button" href="{% url 'courses:remove' i.id %}">Удалить</a></td>{% endif %}
         </tr>
         {% endfor %}
     </table>

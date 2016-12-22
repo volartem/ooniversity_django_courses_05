@@ -48,7 +48,7 @@ class StudentCreateView(CreateView):
     def form_valid(self, form):
         response = super().form_valid(form)
         messages.success(self.request, 'Student %s %s has been successfully added' %
-                         (form.instance.name, form.instance.surname))
+                         (form.instance.name, form.instance.surname), extra_tags='success')
         return response
 
     def get_context_data(self, **kwargs):
@@ -64,7 +64,8 @@ class StudentUpdateView(UpdateView):
 
     def form_valid(self, form):
         response = super().form_valid(form)
-        messages.success(self.request, 'Info on the student has been successfully changed.')
+        messages.success(self.request, 'Info on the student has been successfully changed.',
+                         extra_tags='info')
         return response
 
     def get_success_url(self):
@@ -83,7 +84,8 @@ class StudentDeleteView(DeleteView):
     def delete(self, request, *args, **kwargs):
         response = super().delete(request, *args, **kwargs)
         messages.success(self.request, 'Info on %s %s has been successfully deleted.' %
-                         (self.object.name, self.object.surname))
+                         (self.object.name, self.object.surname),
+                         extra_tags='danger')
         return response
 
     def get_context_data(self, **kwargs):

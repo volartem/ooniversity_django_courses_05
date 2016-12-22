@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Login{% endblock %}
-
-{% block active_login %}active{% endblock %}
+{% block title %}Register User{% endblock %}
 
 {% block content %}
     {% if messages %}
@@ -15,6 +13,8 @@
             {% endfor %}
         </div>
     {% endif %}
+
+    {% if not user.is_authenticated %}
     <div class="container">
 
     <div id="loginbox" class="mainbox col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
@@ -31,33 +31,53 @@
 
         <div class="panel panel-default" >
             <div class="panel-heading">
-                <div class="panel-title text-center">Login here</div>
+                <div class="panel-title text-center">Register here</div>
             </div>
 
             <div class="panel-body" >
-                {% block form %}
-                <form id="form" class="form-horizontal" method="POST" action=".">
+
+                <form name="form" id="form" class="form-horizontal" method="POST" action=".">
                 {% csrf_token %}
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input type="text" class="form-control" name="username"  placeholder="UserName">
+                        {{ form.username }}
+                    </div>
+
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        {{ form.first_name }}
+                    </div>
+
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        {{ form.last_name }}
+                    </div>
+
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                        {{ form.email }}
                     </div>
 
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                        <input type="password" class="form-control" name="password" placeholder="Password">
+                        {{ form.password1 }}
+                    </div>
+
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        {{ form.password2 }}
                     </div>
 
                     <div class="form-group">
 
                         <div class="col-sm-12 controls">
-                            <a href="{% url 'registration' %}">No account? Register here</a>
-                            <button type="submit" href="#" class="btn btn-primary pull-right"><i class="glyphicon glyphicon-log-in"></i> Log in</button>
+                            <a href="{% url 'login' %}">Have an account? Login here</a>
+                            <button type="submit" href="#" class="btn btn-primary pull-right"><i class="glyphicon glyphicon-log-in"></i>Register</button>
                         </div>
                     </div>
 
                 </form>
-                {% endblock %}
+
             </div>
         </div>
     </div>
@@ -310,5 +330,5 @@
 	c-0.049-0.366-0.046-0.739-0.025-1.11c0.009-0.125,0.024-0.25,0.042-0.375C12.122,17.814,12.141,17.732,12.164,17.65z"></path>
   </g>
 </svg>
-
+{% endif %}
 {% endblock %}

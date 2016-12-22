@@ -5,9 +5,11 @@
 
 
 {% block content %}
-    <h2>Создание нового занятия</h2>
-    <form method="post">{% csrf_token %}
-        {{ model.as_p }}
-    <input type="submit" value="Создать">
-    </form>
+    {% if user.is_superuser %}
+        <h2>Создание нового занятия</h2>
+        <form method="post">{% csrf_token %}
+            {{ model.as_p }}
+        <input type="submit" value="Создать">
+        </form>
+    {% endif %}
 {% endblock %}

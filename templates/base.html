@@ -25,7 +25,13 @@
                         <li class="{% block active_students %}{% endblock %}"><a href="{% url 'students:list_view' %}{% block students_get %}{% endblock %}">Студенты</a></li>
                         <li class="{% block active_quadratic %}{% endblock %}"><a href="{% url 'quadratic:quadratic_results' %}">Quadratic</a></li>
                         <li class="{% block active_feedback %}{% endblock %}"><a href="{% url 'feedback' %}">Feedback</a></li>
+                    {% if not user.is_authenticated %}
+                        <li class="{% block active_login %}{% endblock %}" id="btn_login"><a href="{% url 'login' %}">Login</a></li>
+                    {% else %}
+                        <li id="btn_login"><a href="{% url 'logout' %}">Logout</a></li>
+                    {% endif %}
                     </ul>
+
                 </div>
             </nav>
             <div id="content">

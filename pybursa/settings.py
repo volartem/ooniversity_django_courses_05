@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'students.apps.StudentsConfig',
     'coaches.apps.CoachesConfig',
     'feedbacks.apps.FeedbacksConfig',
+    'loginsys.apps.LoginsysConfig',
     'debug_toolbar',
     'django_extensions',
 ]
@@ -145,8 +146,8 @@ EMAIL_HOST = os.environ['EMAIL_HOST']
 
 EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
 
-EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
-
+EMAIL_HOST_PASSWORD =os.environ['EMAIL_HOST_PASWORD']
+#
 EMAIL_USE_TLS = True
 
 INTERNAL_IPS = ['127.0.0.1']

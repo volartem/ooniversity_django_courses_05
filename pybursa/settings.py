@@ -143,7 +143,7 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_files')
 
-ADMINS = [('artem', 'volartem7@gmail.com'), ('assist', 'tatyana.pikalova2012@gmail.com')]
+ADMINS = [('artem', 'volartem7@gmail.com'),]
 
 EMAIL_PORT = os.environ['EMAIL_PORT']
 

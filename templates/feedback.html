@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base_form.html' %}
 
 
 {% block title %}feedback{% endblock title %}
@@ -6,21 +6,33 @@
 
 {% block active_feedback %}active{% endblock %}
 
+{% block for_title %}Send feedback{% endblock %}
 
-{% block content %}
+    {% block form %}
+        <form name="form" id="form" class="form-horizontal" method="POST" action=".">
+            {% csrf_token %}
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                {{ form.name }}
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                {{ form.subject }}
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
+                {{ form.message }}
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                {{ form.from_email }}
+            </div>
+            <div class="form-group">
 
-    {% if messages %}
-        <div class="messages">
-            {% for msg in messages %}
-                <div class="alert alert-{{ msg.tags }} alert-dismissible" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    {{msg.message}}
+                <div class="col-sm-12 controls">
+                    <button type="submit" href="#" class="btn btn-primary pull-right">Send <i class="glyphicon glyphicon-send"></i></button>
                 </div>
-            {% endfor %}
-        </div>
-    {% endif %}
-    <form method="post">{% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Send">
-    </form>
-{% endblock %}
+            </div>
+        </form>
+    {% endblock %}
+

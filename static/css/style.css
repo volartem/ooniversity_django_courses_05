@@ -175,3 +175,6 @@ td, th{
 .top_info{
     border-width: 4px;
 }
+textarea{
+    resize: none;
+}

@@ -21,6 +21,9 @@ def contact(request):
     return render(request, "contact.html")
 
 def login(request):
+    if request.user.is_authenticated():
+        messages.warning(request, 'Bro, you already have logined in, don\'t do it', extra_tags='warning')
+        return redirect('index')
     if request.method == 'POST':
         email = request.POST['email']
         password = request.POST['password']

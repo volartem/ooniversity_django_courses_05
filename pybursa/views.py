@@ -22,14 +22,14 @@ def contact(request):
 
 def login(request):
     if request.method == 'POST':
-        username = request.POST['username']
+        email = request.POST['email']
         password = request.POST['password']
-        user = auth.authenticate(username=username, password=password)
+        user = auth.authenticate(email=email, password=password)
         if user is not None and user.is_active:
             # Правильный пароль и пользователь "активен"
             auth.login(request, user)
             # Перенаправление на "правильную" страницу
-            messages.error(request, 'Congratulations you are successfully have logined to our site', extra_tags='success')
+            messages.error(request, 'Congratulations you have logined  successfully to our site', extra_tags='success')
             return redirect("index")
         else:
             # Отображение страницы с ошибкой
@@ -66,10 +66,10 @@ def registration(request):
             # Send email with activation key
             email_subject = 'Подтверждение регистрации'
             email_body = "Hey %s, thanks for signing up. To activate your account, click this link within \
-            48hours https://djangodeploy.herokuapp.com/accounts/confirm/%s" % (username, activation_key)
+            5 minutes https://djangodeploy.herokuapp.com/accounts/confirm/%s" % (username, activation_key)
             send_mail(email_subject, email_body, from_email='django@deploy.com', recipient_list=[email],
                       fail_silently=False)
-            messages.success(request, "For successfull registeration we send you email\n Please confirm your email",
+            messages.success(request, "For success registered we send you email.\n Please confirm your email",
                              extra_tags='info')
             return redirect('index')
         else:

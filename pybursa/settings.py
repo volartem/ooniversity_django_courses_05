@@ -51,6 +51,7 @@ INSTALLED_APPS = [
 ]
 
 AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
     'pybursa.backend.EmailAuthBackend',
 ]
 
